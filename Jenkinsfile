@@ -8,11 +8,15 @@ pipeline {
         stage("Build"){
             steps {
                 echo("Building the project...")
+                sh("./mvnw clean compile test-compile")
+                echo("Build completed.")
             }
         }
         stage("Test"){
             steps {
                 echo("Running tests...")
+                sh("./mvnw test")
+                echo("Tests completed.")
             }
         }
          stage("Deploy"){
